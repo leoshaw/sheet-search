@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <?!= include('Stylesheet'); ?>
+  </head>
+  <body>
+    <input id='spreadsheet-id' value='<?= spreadsheetId ?>'/>
+    <input id='sheet-name' value='<?= sheetName ?>'/>
+    <input id='query' value='<?= query ?>'/>
+    <h1>Matching rows</h1>
+    <table id='rows'>
+    </table>
+    <?!= include('JavaScript'); ?>
+  </body>
+</html>

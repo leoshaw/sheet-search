@@ -1,0 +1,34 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+// The code in this function runs when the page is loaded.
+$(function() {
+  google.script.run.withSuccessHandler(addRows)
+      .doSearch(getSpreadsheetId(), getSheetName(), getQuery());
+});
+
+function getSpreadsheetId() {
+  return $('#spreadsheet-id')[0].value;
+}
+
+function getSheetName() {
+  return $('#sheet-name')[0].value;
+}
+
+function getQuery() {
+  return $('#query')[0].value;
+}
+
+function addRows(rows) {
+  var table = $('#rows');
+  
+  for(var i = 0; i < rows.length; i++) {
+    var row = rows[i];
+    var content = '<tr>';
+    for(var j = 0; j < row.length; j++) {
+      content += '<td>' + row[j] + '</td>';
+    }
+    content += '</tr>';
+    table.append(content);
+  }
+}
+</script>
